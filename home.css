@@ -1,6 +1,7 @@
 *{
     margin: 0px;
     padding: 0px;
+    
 }
 ul {
     list-style-type: none;
@@ -22,6 +23,7 @@ li{
     font-family: calibri;
     width: 100%;
     height: 72px;
+    z-index: 20;
     box-shadow: 0 4px 2px -2px rgba(0,0,0,0.2);
     
   }
@@ -78,6 +80,12 @@ li{
       -moz-box-shadow: 0 0 10px  rgba(0,0,0,0.6);
       -webkit-box-shadow: 0 0 10px  rgba(0,0,0,0.6);
       -o-box-shadow: 0 0 10px  rgba(0,0,0,0.6);
+
+
+}
+.sign:hover{
+  background-color: #fcd300;
+  transition: background 300ms ease-in-out;
 }
 
  .buttons{
@@ -95,11 +103,15 @@ li{
 .main{
   display: flex;
   width: 100%;
-  
+  /* background-color: #f6f6f6; */
   height: 100vh;
 }
 .sub1{
   width: 50%;
+  /* box-shadow: 5px 0 5px -5px rgba(0,0,0,0.5); */
+ 
+  
+  
   
 }
 
@@ -111,11 +123,12 @@ li{
   max-width: 100%;
   position: relative;
   top: 10%;
+
   right: 10%;
 }
 .top{
   position: absolute;
-  top: 36%;
+  top: 32%;
   transform: translateY(-50%);
   font-family: cera-round-pro, "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   color: #4e505b;
@@ -125,20 +138,26 @@ li{
 }
 .top2{
   position: absolute;
-  top: 55%;
+  top: 64%;
   transform: translateY(-50%);
   font-family: cera-round-pro, "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   color: #4e505b;
- 
+  
   padding: 10px 78px;
   
 }
 .top2>input{
   margin-top: 30px;
   padding: 12px;
-  border: 2px solid #fcd300;
+  border: 2px solid #27314a;
   border-radius: 10px;
   width: 100%;
+  margin-bottom: 45px;
+  background: transparent;
+  box-shadow:  0 0 -10px  rgba(0,0,0,0.3);
+  -moz-box-shadow: 0 0 10px  rgba(0,0,0,0.3);
+  -webkit-box-shadow: 0 0 10px  rgba(0,0,0,0.3);
+  -o-box-shadow: 0 0 10px  rgba(0,0,0,0.3);
 
   
 }
@@ -154,6 +173,29 @@ li{
 
 ::-ms-input-placeholder { /* Microsoft Edge */
   color: orange;
+}
+.footer{
+    
+    background-color: yellow;
+
+    bottom: 0px;
+    height: 700px; 
+  
+    
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.footer2{
+    
+  background-color: green;
+
+  bottom: 0px;
+  height: 700px; 
+
+  
+
 }
 
 
