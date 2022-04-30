@@ -1,0 +1,42 @@
+body{
+    display: flex;
+    justify-content: center;
+  }
+.signup_modal{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    max-width: 320px;
+    border: 1px solid darkslategray;
+    padding: 30px;
+    font: 1em sans-serif;
+      
+}
+  
+    
+p > label {
+    display: block;
+}
+    
+input{
+    width : 100%;
+    border: 1px solid #333;
+    box-sizing: border-box;
+    padding: 5px;
+    }
+.sub_button{
+    width: 320px;
+    padding: 9px;
+    background-color: blue;
+    border: none;
+    color: white;
+}
+   
+form i {
+    margin-left: -30px;
+    cursor: pointer;
+}
+  
+    

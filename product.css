@@ -1,0 +1,121 @@
+body{
+    margin: 0;
+}
+.nav{
+    outline: 2px solid grey;
+    height: 50px;
+}
+.container{
+    width: 100%;
+    display: flex;
+ 
+    justify-content: space-between;
+    
+}
+.side_nav{
+   
+    width: 220px;
+   
+    height: calc(100vh - 50px);
+    border-right: 2px solid grey;
+ 
+   
+}
+.main{
+   
+    width: 100%;
+    height: 500px;
+}
+.side_nav>ul{
+    list-style-type: none;
+    
+}
+.list{
+    padding-top: 40px;
+}
+.list>li{
+    padding: 9px;
+    
+}
+.side_nav a {
+ 
+    text-decoration: none;
+  
+    display: block;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+.side_nav a:hover {
+    color: red;
+}
+#add{
+    margin-left: 50px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.add_modal{
+    max-width: 350px;
+   
+    padding: 50px;
+    font: 1em sans-serif;
+    margin: auto;
+    background-color: white;
+    border-radius: 5px;
+    margin-top: 50px;
+    
+    
+}
+.modal{
+    display: none; 
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */ 
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    
+}
+.textt{
+    resize: none;
+   
+}
+.close{
+    float: right;
+}
+.imgg {
+    width: 140px;
+    height: 140px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    
+
+}
+.record{
+    border: 1px solid black;
+    width: 80%;
+    margin-left: 50px;
+    height: 142px;
+    margin-top: 10px;
+
+}
+.namee{
+    position: relative;
+    top: -130px;
+    left: 160px;
+}
+.price{
+    position: relative;
+    top: -130px;
+    left: 160px;
+}
+.actions>button{
+    border: none;
+    background-color: transparent;
+    left: 800px;
+    
+    position: relative;
+    top: -190px;
+}
