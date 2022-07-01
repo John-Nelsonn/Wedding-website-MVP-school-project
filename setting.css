@@ -1,0 +1,66 @@
+body{
+    margin: 0;
+}
+.nav{
+    outline: 2px solid grey;
+    height: 50px;
+    
+}
+.container{
+    width: 100%;
+    display: flex;
+
+    
+}
+.side_nav{
+   
+    width: 220px;
+   position: fixed;
+    height: 100%;
+    border-right: 2px solid grey;
+ 
+   
+}
+.main{
+   
+    width: 100%;
+    margin-left: 220px;
+    
+}
+.side_nav>ul{
+    list-style-type: none;
+    
+}
+.list{
+    padding-top: 40px;
+}
+.list>li{
+    padding: 9px;
+    
+}
+.side_nav a {
+ 
+    text-decoration: none;
+  
+    display: block;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+.side_nav a:hover {
+    color: red;
+}
+
+input{
+    border: 2px solid hsl(198, 18.5%, 89.4%);
+    font-size: 14px;
+    padding: 13px;
+    width: 270px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+  }
+  form i {
+    margin-left: -30px;
+    color: grey;
+    cursor: pointer;
+  
+  }

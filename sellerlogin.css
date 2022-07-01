@@ -12,7 +12,7 @@ body{
    
     width: 65%;
     position: relative;
-    background: url('images/flow.jpg');
+    background: url('../images/flow.jpg');
     height: 100vh;
     
 }
@@ -79,10 +79,4 @@ form i {
     color: grey;
     cursor: pointer;
 
-}
-.error{
-    color: red;
-    font-family: sans-serif;
-    font-size: 15px;
-   
 }

@@ -22,22 +22,34 @@
         require 'db_connect.php';
 
         if (!isset($_SESSION["email"])) {
-            header("location: login.php");
+            header("location: user1_login.php");
         }
         $email = $_SESSION["email"];
-        $sql    = "SELECT companyName FROM register WHERE email='$email'";
-        $result = mysqli_query($conn, $sql); 
+        $sql   = "SELECT companyName FROM register WHERE email='$email'";
+        $result= mysqli_query($conn, $sql); 
         while($row = mysqli_fetch_array($result)) {
             echo $row["companyName"];
         }
     ?>
 </nav>
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="container">
     <section class="side_nav">
         <ul class="list">
             <li><a href="">Products</a></li>
-            <li><a href="">Bookings</a></li>
-            <li><a href="">Settings</a></li>
+            <li><a href="">Notifications</a></li>
+            <li><a href="setting.php">Settings</a></li>
             <li><a href="user1_logout.php">Logout</a></li>
         </ul>
     </section>
@@ -45,29 +57,41 @@
     <section class="main">
         <button id="add">Add Product</button>
         <div>
-            <?php 
-            include 'db_connect.php ';
-                $sql = "SELECT * FROM product";
-                
-                $res = mysqli_query($conn, $sql);
+        <?php 
+        include 'db_connect.php ';
+	    $sql = "SELECT * FROM product WHERE email='$email'";
+	
+	    $res = mysqli_query($conn, $sql);
 
-                if(mysqli_num_rows($res) > 0){
-                    while($images = mysqli_fetch_assoc($res)){ ?>
-           
-                    <div class="record">
-                        <img alt="picture" class="imgg" src="uploads/<?=$images['picture'] ?>">
-                        <h4><b><p class="namee"><?=$images['namee'] ?></p></b></h4>
-                        <p class="price">GH₵ <?=$images['price'].'.00'; ?></p>
-                        
-                        <form method="get" class="actions">
-                            
-                            <button>Edit</button><br>
-                            <button name="del">Delete</button>
-                           
-                        </form>
-                       
-                    </div>
-            <?php } } ?>
+        if(mysqli_num_rows($res) > 0){
+            while($images = mysqli_fetch_assoc($res)){ ?>
+            
+            <div class="record">
+                <img alt="picture" class="imgg" src="uploads/<?=$images['picture'] ?>">
+                <h4><b><p class="namee"><?=$images['namee'] ?></p></b></h4>
+                <p class="price">GH₵ <?=$images['price'].'.00'; ?></p>
+             
+                <p class="price"><?=$images['category']; ?></p>
+                <p class="price"><?=$images['locationn']; ?></p>
+                <p class="price"><?=$images['comment']; ?></p>
+                <p class="price"><?=$images['datee']; ?></p>
+
+                
+
+                <?php $id = $images['id'];?>
+                
+                <form method="GET" class="actions">
+                    
+                    <button><a href="update.php?updateid='<?=$id?>'">Edit</a></button><br>
+                    <button><a href="delete.php?deleteid='<?=$id?>'">Delete</a></button>
+                   
+                </form>
+            </div>
+            
+        <?php 
+            } 
+        } 
+        ?>
         </div>
         <div id="myModal" class="modal">
         <center>
@@ -110,7 +134,7 @@
                     GH₵<input style="width: 130px;" type="number" name="price" required/><br><br>
                 
                     <label>Upload Pictures</label>
-                    <input type="file" name="pic" accept ="image/jpeg,image/jpg,image/png" required/><br>
+                    <input type="file" name="pic" accept ="image/jpeg,image/jpg,image/png" required multiple/><br>
 
                     <label>Extra comments</label><br>
                     <textarea class="textt" name="comment" required>
@@ -124,6 +148,11 @@
         </div>
     </section>
 </div>
+<?php
+// Return current date from the remote server
+
+?>
+
 <script>
    
     let modal = document.getElementById("myModal");
@@ -136,16 +165,23 @@
     span.onclick = function() {
         modal.style.display = "none";
     }
+    $
     // window.onclick = function(event) {
     //     if (event.target == modal) {
     //     modal.style.display = "none";
     //     }
     // } 
-    // $(document).ready(function(){
-    //     $(".modal").click(function(){
-    //         $(".modal").hide();
-    //     });
-    // });
+    $(document).ready(function(){
+        $(".record").click(function(){
+            $(".more").show();
+        });
+        $(".clo").click(function(){
+            $(".more").hide();
+        });
+        $(".rec").click(function(){
+            $(".more").hide();
+        });
+    });
     if ( window.history.replaceState ) {
         window.history.replaceState( null, null, window.location.href );
     }
@@ -159,17 +195,21 @@
         $price = $_POST["price"];
         $comment = $_POST["comment"];
 
+       
+
         
 
-        $sql = "INSERT INTO product (category,namee,locationn,price,comment)
-        VALUES ('$category','$prod_name','$loc','$price','$comment') ";
+        // $sql = "INSERT INTO product (category,namee,locationn,price,comment)
+        // VALUES ('$category','$prod_name','$loc','$price','$comment') ";
         // echo '<pre>';
         // print_r($_FILES['pic']); 
         // echo '</pre>';
+        
+            
         $imgname = $_FILES['pic']['name'];
         $imgsize = $_FILES['pic']['size'];
         $tmpname = $_FILES['pic']['tmp_name'];
-        $error = $_FILES['pic']['error'];
+        $error   = $_FILES['pic']['error'];
         
         if($error === 0){
             if($imgsize > 1000000){
@@ -183,10 +223,12 @@
                     $newimgname = uniqid("IMG-",true).'.'.$img; 
                     $upload_path = 'uploads/'.$newimgname; 
                     move_uploaded_file($tmpname,$upload_path);
+                    // $date = date('d-m-y h:i:s');
 
-                    $sql = "INSERT INTO product(category,namee,locationn,price,picture,comment) 
-                            VALUES('$category','$prod_name','$loc','$price','$newimgname','$comment') ";
+                    $sql = "INSERT INTO product(category,namee,locationn,price,picture,comment,email) 
+                            VALUES('$category','$prod_name','$loc','$price','$newimgname','$comment','$email') ";
                     mysqli_query($conn, $sql);
+
                     
                     echo '<script>window.location.reload()</script>';
                     

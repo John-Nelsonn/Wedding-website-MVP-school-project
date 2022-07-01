@@ -66,15 +66,17 @@ li{
     background:transparent;
     border: none;
     color: #27314a;
-    font-weight: bolder;
+    font-family: calibri;
+    font-size: 15px;
 
 }
 .sign{
+  font-size: 15px;
     padding: 10px;
     background:transparent;
     border:2px solid  #fcd300;
     color: #27314a; 
-    font-weight: bolder;
+    font-family: calibri;
     border-radius: 4px;
     box-shadow:  0 0 -10px  rgba(0,0,0,0.6);
       -moz-box-shadow: 0 0 10px  rgba(0,0,0,0.6);
@@ -87,11 +89,23 @@ li{
   background-color: #fcd300;
   transition: background 300ms ease-in-out;
 }
+.log:hover{
+  padding: 10px;
+    background:transparent;
+    border:2px solid  #fcd300;
+    color: #27314a;
+  font-weight: bolder;
+    border-radius: 4px;
+    box-shadow:  0 0 -10px  rgba(0,0,0,0.6);
+      -moz-box-shadow: 0 0 10px  rgba(0,0,0,0.6);
+      -webkit-box-shadow: 0 0 10px  rgba(0,0,0,0.6);
+      -o-box-shadow: 0 0 10px  rgba(0,0,0,0.6);
+}
 
  .buttons{
     float: right;
     margin-right: 30px;
- 
+    font-family: sans-serif;
     word-spacing: 10px;
     margin-top: -30px;
     
@@ -108,8 +122,10 @@ li{
 }
 .sub1{
   width: 50%;
-  /* box-shadow: 5px 0 5px -5px rgba(0,0,0,0.5); */
- 
+  box-shadow: 5px 0 5px -5px rgba(0,0,0,0.6);
+  background-color: lavender;
+  border-bottom-right-radius: 50%;
+  border: 1px solid gold;
   
   
   
@@ -148,7 +164,7 @@ li{
 }
 .top2>input{
   margin-top: 30px;
-  padding: 12px;
+  padding: 19px;
   border: 2px solid #27314a;
   border-radius: 10px;
   width: 100%;
@@ -174,29 +190,207 @@ li{
 ::-ms-input-placeholder { /* Microsoft Edge */
   color: orange;
 }
-.footer{
+.next{
     
-    background-color: yellow;
-
+   
+    display: flex;
     bottom: 0px;
-    height: 700px; 
+    height: 500px; 
+    /* border-bottom: 2px solid gold; */
+    margin-bottom: 100px;
+    /* background-color: rebeccapurple; */
   
     
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
 }
-.footer2{
-    
-  background-color: green;
+.next1{
 
-  bottom: 0px;
-  height: 700px; 
+  width: 50%;
+  height: inherit;
+}
+.next2{
 
+  width: 50%;
+  height: inherit;
+}
+
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  z-index: 200;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
   
+  box-shadow: 0 2px 10px rgb(0 0 0 / 10%), 0 10px 15px rgb(0 0 0 / 20%);
+  border-radius: 10px;
+  padding: 20px 30px 70px 50px;
+  border: 1px solid #888;
+  width: 27%;
 
 }
 
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+ padding-left: 6px;
+
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal-content>a{
+  color: orange;
+  text-decoration: none;
+}
+
+.div1{
+  background-color: lavender;
+  padding: 15px;
+  
+  font-family: sans-serif;
+  border-left: 2px solid #fdd50c;
+  margin-bottom: 9px;
+  cursor: pointer;
+  color: orange;
+  border-radius: 5px;
+  width: 300px;
+  text-decoration: none;
+}
+
+.div2{
+  background-color: lavender;
+  padding: 15px;
+  color: orange;
+  width: 300px;
+  font-family: sans-serif;
+  cursor: pointer;
+  border-left: 2px solid #fdd50c;
+  border-radius: 5px;
+}
+.div2>a{
+  color: orange;
+  text-decoration: none;
+}
+.div1:hover{
+opacity: 0.7;
+}
+.div2:hover{
+  opacity: 0.7;
+  }
+
+
+  .circle1 {position: relative;left:70px;padding: 10px; border: 2px solid gold;background-color: gold; border-radius: 100%; width: 1px; z-index: 2;}
+.circle1:first-child {margin-top: 0;}
+.circle1:before {position: absolute; border: 1px dashed #999; width: 0; height: 125px; display: block; content: ''; left: 50%; z-index: 1; top: -130px; margin-left: -1px;}
+.circle1:first-child:before {display: none;}
+
+.circle2 {position: relative;left:70px;padding: 10px; border: 2px solid gold; border-radius: 100%; width: 1px;margin-top: 130px; background-color: #fff; z-index: 2;}
+.circle2:first-child {margin-top: 0;}
+.circle2:before {position: absolute; border: 1px dashed #999; width: 0; height: 125px; display: block; content: ''; left: 50%; z-index: 1; top: -130px; margin-left: -1px;}
+.circle2:first-child:before {display: none;}
+
+.circle3 {position: relative;padding: 10px;left:70px; border: 2px solid gold; border-radius: 100%; width: 1px;margin-top: 130px; background-color: #fff; z-index: 2;}
+.circle3:first-child {margin-top: 0;}
+.circle3:before {position: absolute; border: 1px dashed #999; width: 0; height: 125px; display: block; content: ''; left: 50%; z-index: 1; top: -130px; margin-left: -1px;}
+.circle3:first-child:before {display: none;}
 
  
+.how{
+  color: #4e505b;
+  font-size:50px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bolder;
+  margin-top: 60px;
+}
+.parallax{
+   /* The image used */
+   background:linear-gradient(0deg, rgba(0, 0, 0, 0.9), rgba(61, 57, 1, 0.747)), url('images/sert.jpeg');
+   margin-bottom: -110px;
+   top: -110px;
+   /* Full height */
+   height: 430px; 
+   position: relative;
+   /* Create the parallax scrolling effect */
+   background-attachment: fixed;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+ 
+}
+.why{
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  padding-top: 40px;
+  letter-spacing: 5px;
+  font-size: 40px;
+  color: transparent;
+  background: conic-gradient(
+    orange,white);
+  background-clip: text;  
+  -webkit-background-clip: text;
+  cursor: pointer;
+
+}
+.inn{
+ width: 200px;
+ height: 100px;
+  background-color: white;
+  margin: 60px 40px;
+  color: #555;
+  padding: 50px ;
+  font-weight: lighter;
+  line-height: 1.6;
+  font-family: sans-serif;
+  box-shadow: 0 0 5px grey;
+  
+
+}
+.foot{
+height: 250px;
+display: flex;
+justify-self: center;
+padding-top: 100px;
+ 
+}
+.logo1{
+  font-size: 23px;  
+  font-weight: bolder;
+  margin-left: 70px;
+}
+.lol{
+  padding-top: 30px;
+  margin-left: 70px;
+ 
+
+}
+.tex1{
+  font-size: 23px;  
+  font-weight: bolder;
+  font-family: 'Caveat', cursive;
+  color: #4e505b;
+  position: relative;
+  top: -13px;
+  right: 10px;
+}

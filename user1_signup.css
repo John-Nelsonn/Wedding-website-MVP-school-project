@@ -1,43 +1,83 @@
 body{
+  margin: 0px;
+
+  
+}
+.container{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+.pic{
+ 
+  width: 65%;
+  position: relative;
+  background: url('images/flow.jpg');
+  height: 100vh;
+  
+}
+
+.forms{
+
+  width: 40%;
+  height: 100vh;
+
   display: flex;
   justify-content: center;
+  
+  box-shadow: -5px 0 5px -5px rgba(0,0,0,0.4);
+  z-index: 10;
+
 }
-.signup_modal{
-  margin: 0;
+h2{
+  color: hsl(227.7, 80.9%, 30.8%);
+  font-family: sans-serif;
+  font-weight: bolder;
+}
+input{
+  border: 2px solid hsl(198, 18.5%, 89.4%);
+  font-size: 14px;
+  padding: 13px;
+  width: 270px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+.around{
   position: absolute;
   top: 50%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  max-width: 320px;
-  border: 1px solid darkslategray;
-  padding: 30px;
-  
-  font: 1em sans-serif;
-    
 }
-
-  
-p > label {
-  display: block;
-}
-  
-input{
-  width : 100%;
-  border: 1px solid #333;
-  box-sizing: border-box;
-  padding: 5px;
-  }
-.sub_button{
-  width: 320px;
-  padding: 9px;
-  background-color: blue;
+.sign{
+  background-color: #fcd300;
+  color: hsl(227.7, 80.9%, 30.8%);
+  padding: 14px;
+  letter-spacing: 1px;
+  font-weight: bolder;
   border: none;
-  color: white;
+  border-radius: 5px;
+  width: 301px;
+  font-family: arial;
+  box-shadow: 0 2px 10px rgb(0 0 0 / 10%), 0 10px 15px rgb(0 0 0 / 20%);
+
 }
- 
+.sign:hover{
+  opacity: 0.8;
+}
+.text{
+  color: hsl(226.8, 36.2%, 63.1%);
+  font-family: sans-serif;
+  margin-left: 35px;
+}
+.log{
+  color: #ffd700;
+  text-decoration: none;
+  font-family: sans-serif;
+
+}
 form i {
   margin-left: -30px;
+  color: grey;
   cursor: pointer;
-}
 
-  
+}
