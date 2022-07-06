@@ -21,12 +21,13 @@
                     
                     <li class="lis"><a class="active" href="home.html"><i style="margin-right: 3px;" class="bi-house-door"></i></i>Home</a></li>
                     
-
+                    <li class="lis"><a  href="#about"><i style="margin-right: 3px;" class="bi-house-door"></i></i>About</a></li>
+                    
                     <li class="lis"><a href=""><i style="margin-right: 3px;" class="bi-stars"></i>Expert Advice</a></li>
                 </span>
             
             <span class="buttons">
-            <a href="spouse2log.html"><li><button id="myBtn2" class="log">LOGIN-IN</button></li></a>
+            <a href="buyerlog.php"><li><button id="myBtn2" class="log">LOGIN-IN</button></li></a>
             <li><button id="myBtn" class="sign">SIGN-UP</button></li>
             </span>
         </ul>
@@ -40,7 +41,7 @@
           <span class="close">&times;</span><br><br><br><br>
 
           <a href="user1_signup.php"><div class="div1">Sign up as you&i vendor</div></a>
-          <a href="seller/spouse1log.php"><div class="div2">Sign up as to-be spouse </div></a>
+          <a href="buyersign.php"><div class="div2">Sign up as couple </div></a>
           <div></div>
         </div>
     </div>
@@ -79,10 +80,10 @@
 
 
         <div class="sub2">
-            <img src="images/marriage.png">
+            <img src="images/c4n.png">
         </div>
     </div>
-    <div class="next">
+    <div id="about" class="next">
 
         <div class="next1">
             
@@ -105,8 +106,8 @@
             <!-- <img style="opacity:0.9;position:relative;left:350px;  -ms-transform: rotate(-30deg);transform: rotate(-30deg);
             " src="diamond.png"> -->
             <h1 class="how">How <span style="color: #fcd300;">we</span> make it <br>simple</h1><br><br>
-            <span style="color: #6e6b7b;font-size: 17px;font-family: 'Poppins', sans-serif;">Our platform links to-be spouses to shops and services <br>where they can
-            find product and services around them for<br> their weddings.To search for, sign up us to-spouse. To<br> display products and services for weddings, sign up us a <br>vendor.<br><br>
+            <span style="color: #6e6b7b;font-size: 17px;font-family: 'Poppins', sans-serif;">Our platform links couple to shops and services <br>where they can
+            find product and services around them for<br> their weddings.To search for, sign up us couple. To<br> display products and services for weddings, sign up us a <br>vendor.<br><br>
             <i style="color: gold;margin-right: 7px;font-size: 25px;" class="bi bi-check2-all"></i>No hidden charges
             </span>
         </div><br>

@@ -68,29 +68,40 @@ li{
     color: #27314a;
     font-family: calibri;
     font-size: 15px;
+    
 
 }
 .sign{
   font-size: 15px;
     padding: 10px;
+    border: none;
+    outline: none;
     background:transparent;
-    border:2px solid  #fcd300;
+    /* border:2px solid  #fcd300; */
     color: #27314a; 
     font-family: calibri;
-    border-radius: 4px;
-    box-shadow:  0 0 -10px  rgba(0,0,0,0.6);
+    /* border-radius: 4px; */
+    /* box-shadow:  0 0 -10px  rgba(0,0,0,0.6);
       -moz-box-shadow: 0 0 10px  rgba(0,0,0,0.6);
       -webkit-box-shadow: 0 0 10px  rgba(0,0,0,0.6);
-      -o-box-shadow: 0 0 10px  rgba(0,0,0,0.6);
+      -o-box-shadow: 0 0 10px  rgba(0,0,0,0.6); */
 
 
+}
+html{
+  scroll-behavior: smooth;
 }
 .sign:hover{
-  background-color: #fcd300;
+  /* background-color: #fcd300; */
   transition: background 300ms ease-in-out;
+
+  border-bottom: 3px solid #fcd300;
+  padding-bottom: 23px;
 }
-.log:hover{
-  padding: 10px;
+ .log:hover{
+  border-bottom: 3px solid #fcd300;
+  padding-bottom: 23px;
+  /* padding: 10px;
     background:transparent;
     border:2px solid  #fcd300;
     color: #27314a;
@@ -99,8 +110,8 @@ li{
     box-shadow:  0 0 -10px  rgba(0,0,0,0.6);
       -moz-box-shadow: 0 0 10px  rgba(0,0,0,0.6);
       -webkit-box-shadow: 0 0 10px  rgba(0,0,0,0.6);
-      -o-box-shadow: 0 0 10px  rgba(0,0,0,0.6);
-}
+      -o-box-shadow: 0 0 10px  rgba(0,0,0,0.6); */
+} 
 
  .buttons{
     float: right;
@@ -119,6 +130,7 @@ li{
   width: 100%;
   /* background-color: #f6f6f6; */
   height: 100vh;
+  margin-bottom: 50px;
 }
 .sub1{
   width: 50%;

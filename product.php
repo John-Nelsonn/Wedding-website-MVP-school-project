@@ -11,9 +11,10 @@
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
      
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-     <title>Document</title>
+     <title>You&i vendor</title>
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
      <link href="product.css" type="text/css" rel="stylesheet">
+     <link rel="icon" type="image/x-icon" href="images/pic1.png">
  </head>
  <body>
 <nav class="nav">
@@ -47,8 +48,8 @@
 <div class="container">
     <section class="side_nav">
         <ul class="list">
-            <li><a href="">Products</a></li>
-            <li><a href="">Notifications</a></li>
+            <li><a href="product.php">Products</a></li>
+            <li><a href="vendornotifications.php">Notifications</a></li>
             <li><a href="setting.php">Settings</a></li>
             <li><a href="user1_logout.php">Logout</a></li>
         </ul>
@@ -59,35 +60,37 @@
         <div>
         <?php 
         include 'db_connect.php ';
-	    $sql = "SELECT * FROM product WHERE email='$email'";
+      
+	    $sql = "SELECT * FROM product WHERE email='$email' group by uniq ";
 	
 	    $res = mysqli_query($conn, $sql);
 
         if(mysqli_num_rows($res) > 0){
             while($images = mysqli_fetch_assoc($res)){ ?>
-            
+            <?php $id = $images['id'];?>
+            <?php 
+                    $uni = $images['uniq'];
+                ?>
+            <a href="view.php?viewid='<?=$id?>'">
             <div class="record">
-                <img alt="picture" class="imgg" src="uploads/<?=$images['picture'] ?>">
+                <img alt="picture" class="imgg" src="uploads/.<?=$images['picture'] ?>">
                 <h4><b><p class="namee"><?=$images['namee'] ?></p></b></h4>
                 <p class="price">GH₵ <?=$images['price'].'.00'; ?></p>
+               
              
-                <p class="price"><?=$images['category']; ?></p>
-                <p class="price"><?=$images['locationn']; ?></p>
-                <p class="price"><?=$images['comment']; ?></p>
-                <p class="price"><?=$images['datee']; ?></p>
-
+ 
                 
 
-                <?php $id = $images['id'];?>
+                
                 
                 <form method="GET" class="actions">
                     
-                    <button><a href="update.php?updateid='<?=$id?>'">Edit</a></button><br>
+                    <!-- <button><a href="update.php?updateid='<?=$id?>'">Edit</a></button><br> -->
                     <button><a href="delete.php?deleteid='<?=$id?>'">Delete</a></button>
                    
                 </form>
             </div>
-            
+            </a>
         <?php 
             } 
         } 
@@ -100,12 +103,17 @@
                     <span class="close">&times</span><br>
                     <label>Select Category</label><br>
                         <select name="category">
-                            <option>Fashion and style</option>
+                            <option>Fashion and accessories</option>
                             <option>Catering and Waiters</option>
+                            <option>Wedding Cake</option>
                             <option>Rentals</option>
-                            <option>Media</option>
-                            <option>Mc</option>
+                            <option>Decoration</option>
+                            <option>Media and Photography</option>
+                            <option>Event Center and planning</option>
+                            <option>Entertainment and Music</option>
                             <option>Souvenirs and gifts</option>
+                            <option>Beauty and Salon</option>
+                       
                         </select>
                     </label><br><br>
                     <label>Name of Product</label>
@@ -134,9 +142,9 @@
                     GH₵<input style="width: 130px;" type="number" name="price" required/><br><br>
                 
                     <label>Upload Pictures</label>
-                    <input type="file" name="pic" accept ="image/jpeg,image/jpg,image/png" required multiple/><br>
-
-                    <label>Extra comments</label><br>
+                    <input type="file" name="pic[]" accept ="image/jpeg,image/jpg,image/png" required multiple/><br>
+                
+                    <label>Extra Information</label><br>
                     <textarea class="textt" name="comment" required>
                     </textarea><br><br>
 
@@ -188,58 +196,37 @@
 </script>
 <?php
     require "db_connect.php";
-    if(isset($_POST['sub']) && isset($_FILES['pic'])){
+   
+
+    if(isset($_POST['sub'])){
         $category = $_POST["category"];
         $prod_name = $_POST["prod_name"];
         $loc = $_POST["loc"];
         $price = $_POST["price"];
         $comment = $_POST["comment"];
 
-       
+        $imgCount = count($_FILES['pic']['name']);
+        $uniqq = uniqid();
+        for($i=0;$i<$imgCount;$i++){
 
-        
-
-        // $sql = "INSERT INTO product (category,namee,locationn,price,comment)
-        // VALUES ('$category','$prod_name','$loc','$price','$comment') ";
-        // echo '<pre>';
-        // print_r($_FILES['pic']); 
-        // echo '</pre>';
-        
+            $imageName    = $_FILES['pic']['name'][$i];
+            $imageTempName = $_FILES['pic']['tmp_name'][$i];
+            $targetPath    = "./uploads/.$imageName";
             
-        $imgname = $_FILES['pic']['name'];
-        $imgsize = $_FILES['pic']['size'];
-        $tmpname = $_FILES['pic']['tmp_name'];
-        $error   = $_FILES['pic']['error'];
-        
-        if($error === 0){
-            if($imgsize > 1000000){
-                echo '<script>alert("image too large")</script>';
-            }else{
-               $img_ex = pathinfo($imgname, PATHINFO_EXTENSION); 
-               $img = strtolower($img_ex);
-
-               $allowed_ex = array('jpg','jpeg','png');
-               if(in_array($img,$allowed_ex)){
-                    $newimgname = uniqid("IMG-",true).'.'.$img; 
-                    $upload_path = 'uploads/'.$newimgname; 
-                    move_uploaded_file($tmpname,$upload_path);
-                    // $date = date('d-m-y h:i:s');
-
-                    $sql = "INSERT INTO product(category,namee,locationn,price,picture,comment,email) 
-                            VALUES('$category','$prod_name','$loc','$price','$newimgname','$comment','$email') ";
-                    mysqli_query($conn, $sql);
-
-                    
+            if(move_uploaded_file($imageTempName, $targetPath)){
+                $sqlq = "INSERT INTO product(category,namee,locationn,price,picture,comment,email,uniq) 
+                VALUES('$category','$prod_name','$loc','$price','$imageName','$comment','$email','$uniqq') ";
+                $resa = mysqli_query($conn, $sqlq);
+                
+                if ($resa){
                     echo '<script>window.location.reload()</script>';
-                    
                 }else{
-                  echo "<script>alert('we dont support such extensions')</script>";  
+                    echo '<script>alert("unable to upload product")</script>';
                 }
             }
-        }else{
-            echo '<script>alert("problem uploading image")</script>';
+
         }
-    }
+}
     // if(isset($_GET["id"])){
        
        

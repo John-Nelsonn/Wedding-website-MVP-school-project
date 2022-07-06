@@ -11,10 +11,10 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-     <title>Login up as you&i vendor</title>
+     <title>Login up as couple</title>
  
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
-     <link href="user1_login.css" type="text/css" rel="stylesheet">
+     <link href="buyerlog.css" type="text/css" rel="stylesheet">
      
     <link rel="icon" type="image/x-icon" href="images/pic1.png">
  </head>
@@ -38,8 +38,8 @@
             
             <button class="sign" name="login" type="submit">Login</button><br><br>
             
-            <span class="text">Don't have an account? <a class="log" href="user1_signup.php">Sign Up</a></span><br><br>
-            <a href="buyerlog.php" style="text-decoration: none;color: orange;font-family: sans-serif;margin-left: 65px;" >Login as couple</a>
+            <span class="text">Don't have an account? <a class="log" href="buyersign.php">Sign Up</a></span><br><br>
+            <a href="user1_login.php" style="text-decoration: none;color: orange;font-family: sans-serif;margin-left: 65px;" >Login as you&i vendor</a>
         
         </form>
     </span>
@@ -75,7 +75,7 @@
         
  
      // Check if a user exists with given username & password
-     $result = mysqli_query($conn, "select email, passwordd FROM register where email='$email' and passwordd='$password'");
+     $result = mysqli_query($conn, "select email, passwordd FROM registerspouse where email='$email' and passwordd='$password'");
  
      // Count the number of user/rows returned by query 
      $user_matched = mysqli_num_rows($result);
@@ -84,8 +84,8 @@
      
      
      if ($user_matched == 1) {
-        $_SESSION["email"] = $email;
-         header("location: product.php");
+        $_SESSION["emaill"] = $email;
+         header("location: buyview.php");
      } else {
         echo '
         

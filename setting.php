@@ -86,7 +86,7 @@
     <section class="side_nav">
         <ul class="list">
             <li><a href="product.php">Products</a></li>
-            <li><a href="">Bookings</a></li>
+            <li><a href="vendornotifications.php">Notifications</a></li>
             <li><a href="setting.php">Settings</a></li>
             <li><a href="user1_logout.php">Logout</a></li>
         </ul>
